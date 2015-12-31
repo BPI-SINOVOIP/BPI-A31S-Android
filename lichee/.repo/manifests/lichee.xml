@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <remote  name="lichee"
+           fetch="../mars/lichee"  />
+  <default revision="mars-44-dev"
+           remote="lichee"
+           sync-j="4" />
+
+  <project path="buildroot" name="buildroot" >
+       <copyfile src="scripts/top_build.sh" dest="build.sh" />
+       <copyfile src="README" dest="README" />
+   </project>    
+  <project path="linux-3.3" name="linux-3.3" />
+  <project path="tools" name="tools"  />
+  <project path="brandy" name="brandy"  />
+
+</manifest>
