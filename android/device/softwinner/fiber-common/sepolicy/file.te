@@ -1,0 +1,2 @@
+allow file_type rootfs:filesystem associate;
+

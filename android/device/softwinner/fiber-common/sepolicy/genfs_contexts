@@ -1,0 +1,12 @@
+genfscon fuseblk / u:object_r:sdcard_external:s0
+genfscon fusectl / u:object_r:sdcard_external:s0
+genfscon cifs / u:object_r:sdcard_external:s0
+genfscon smbfs / u:object_r:sdcard_external:s0
+genfscon nfs / u:object_r:sdcard_external:s0
+genfscon nfs4 / u:object_r:sdcard_external:s0
+genfscon fat / u:object_r:sdcard_external:s0
+genfscon ntfs / u:object_r:sdcard_external:s0
+genfscon ntfs-3g / u:object_r:sdcard_external:s0
+genfscon iso9660 / u:object_r:sdcard_external:s0
+genfscon msdos / u:object_r:sdcard_external:s0
+

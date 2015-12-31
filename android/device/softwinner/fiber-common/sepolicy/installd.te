@@ -1,0 +1,5 @@
+allow installd sdcard_external:dir rw_dir_perms;
+allow installd download_file:dir { write remove_name };
+allow installd download_file:file unlink;
+allow installd shell_data_file:lnk_file { create setattr };
+

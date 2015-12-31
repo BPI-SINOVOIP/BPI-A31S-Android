@@ -1,0 +1,4 @@
+# Grant GPU access to all processes started by Zygote.
+# They need that to render the standard UI. steal from headhammer
+allow appdomain powervr_device:chr_file rw_file_perms;
+allow appdomain appdomain:fifo_file rw_file_perms;

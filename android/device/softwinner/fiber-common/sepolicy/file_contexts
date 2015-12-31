@@ -1,0 +1,3 @@
+# label graphics device with a new type, we need
+# to allow write operation from appdomain
+/dev/pvr_sync              u:object_r:powervr_device:s0

@@ -1,0 +1,9 @@
+allow vold device:blk_file create_file_perms;
+allow vold device:dir create_dir_perms;
+allow vold log_device:dir w_file_perms;
+allow vold kernel:system module_request;
+allow vold fuse_device:chr_file rw_file_perms;
+allow vold self:capability { sys_rawio setuid setgid };
+allow vold proc:file rw_file_perms;
+allow vold self:capability2 block_suspend;
+

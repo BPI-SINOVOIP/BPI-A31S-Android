@@ -1,0 +1,7 @@
+allow untrusted_app powervr_device:chr_file rw_file_perms;
+allow untrusted_app app_data_file:file rx_file_perms;
+allow untrusted_app apk_data_file:dir r_dir_perms;
+allow untrusted_app self:process ptrace;
+allow untrusted_app shell_data_file:dir rw_dir_perms;
+allow untrusted_app shell_data_file:file create_file_perms;
+

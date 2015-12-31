@@ -1,0 +1,7 @@
+on init
+    insmod /nand.ko
+    insmod /keyboard.ko
+    insmod /disp.ko
+    insmod /lcd.ko
+    insmod /hdmi.ko
+    insmod /sun6i-ir.ko
