@@ -105,6 +105,24 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
         $(call find-copy-subdir-files,*,device/softwinner/fiber-common/rild/usb_modeswitch.d,system/etc/usb_modeswitch.d)
 
+#egl
+PRODUCT_COPY_FILES += \
+        device/softwinner/mars-ml220/egl/pvrsrvctl:system/vendor/bin/pvrsrvctl \
+        device/softwinner/mars-ml220/egl/libusc.so:system/vendor/lib/libusc.so \
+        device/softwinner/mars-ml220/egl/libglslcompiler.so:system/vendor/lib/libglslcompiler.so \
+        device/softwinner/mars-ml220/egl/libIMGegl.so:system/vendor/lib/libIMGegl.so \
+        device/softwinner/mars-ml220/egl/libpvr2d.so:system/vendor/lib/libpvr2d.so \
+        device/softwinner/mars-ml220/egl/libpvrANDROID_WSEGL.so:system/vendor/lib/libpvrANDROID_WSEGL.so \
+        device/softwinner/mars-ml220/egl/libPVRScopeServices.so:system/vendor/lib/libPVRScopeServices.so \
+        device/softwinner/mars-ml220/egl/libsrv_init.so:system/vendor/lib/libsrv_init.so \
+        device/softwinner/mars-ml220/egl/libsrv_um.so:system/vendor/lib/libsrv_um.so \
+        device/softwinner/mars-ml220/egl/libEGL_POWERVR_SGX544_115.so:system/vendor/lib/egl/libEGL_POWERVR_SGX544_115.so \
+        device/softwinner/mars-ml220/egl/libGLESv1_CM_POWERVR_SGX544_115.so:system/vendor/lib/egl/libGLESv1_CM_POWERVR_SGX544_115.so \
+        device/softwinner/mars-ml220/egl/libGLESv2_POWERVR_SGX544_115.so:system/vendor/lib/egl/libGLESv2_POWERVR_SGX544_115.so \
+        device/softwinner/mars-ml220/egl/gralloc.sun6i.so:system/vendor/lib/hw/gralloc.sun6i.so \
+        device/softwinner/mars-ml220/egl/hwcomposer.sun6i.so:system/vendor/lib/hw/hwcomposer.sun6i.so \
+        device/softwinner/mars-ml220/egl/egl.cfg:system/lib/egl/egl.cfg \
+
 PRODUCT_PROPERTY_OVERRIDES += \
         ro.sf.lcd_density=160 \
         ro.sf.showhdmisettings=7 \

@@ -7,5 +7,5 @@ cd ..
 
 rm -rf rootfs
 rm -rf rootfs.ext4
-rm -rf sysroot
+#rm -rf sysroot
 

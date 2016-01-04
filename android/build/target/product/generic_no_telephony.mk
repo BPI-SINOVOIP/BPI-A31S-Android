@@ -20,31 +20,34 @@
 PRODUCT_POLICY := android.policy_phone
 
 PRODUCT_PACKAGES := \
+    DeskClock \
+    Bluetooth \
+    Calculator \
+    Calendar \
     Camera2 \
     CertInstaller \
+    Email \
+    Exchange2 \
     FusedLocation \
     Gallery2 \
     InputDevices \
     Keyguard \
     LatinIME \
+    Launcher2 \
     Music \
     MusicFX \
     OneTimeInitializer \
     PrintSpooler \
     Provision \
+    QuickSearchBox \
+    Settings \
     SystemUI \
     TeleService \
+    CalendarProvider \
+    bluetooth-health \
     hostapd \
-    wpa_supplicant.conf 
-#    Exchange2 \
-#    Email \
-#    WallpaperCropper
-#    DeskClock \
-#    Calculator \
-#    Calendar \
-#    QuickSearchBox \
-#    CalendarProvider \
-#    bluetooth-health \
+    wpa_supplicant.conf \
+    WallpaperCropper
 
 PRODUCT_PACKAGES += \
     audio \
@@ -59,11 +62,11 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     librs_jni \
-#    libvideoeditor_jni \
-#    libvideoeditor_core \
-#    libvideoeditor_osal \
-#    libvideoeditor_videofilters \
-#    libvideoeditorplayer \
+    libvideoeditor_jni \
+    libvideoeditor_core \
+    libvideoeditor_osal \
+    libvideoeditor_videofilters \
+    libvideoeditorplayer \
 
 PRODUCT_PACKAGES += \
     audio.primary.default \
@@ -77,7 +80,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES := \
         frameworks/av/media/libeffects/data/audio_effects.conf:system/etc/audio_effects.conf
 
-#PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_PROPERTY_OVERRIDES += \
     ro.carrier=unknown
 
 $(call inherit-product-if-exists, frameworks/base/data/fonts/fonts.mk)

@@ -24,7 +24,6 @@ PRODUCT_PACKAGES += \
     Browser \
     Contacts \
     DocumentsUI \
-	DownloadProvider \
     DownloadProviderUi \
     ExternalStorageProvider \
     KeyChain \
@@ -32,7 +31,6 @@ PRODUCT_PACKAGES += \
     PacProcessor \
     ProxyHandler \
     SharedStorageBackup \
-    VpnDialogs \
-    SoundRecorder
+    VpnDialogs
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_base.mk)

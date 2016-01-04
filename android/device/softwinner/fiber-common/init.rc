@@ -477,8 +477,8 @@ service console /system/bin/sh
     class core
     console
     disabled
-    user shell
-    group log
+    user root
+    group root
 
 on property:ro.debuggable=1
     start console

@@ -1302,7 +1302,7 @@ static struct regval_list sensor_vga_regs[] = { //VGA:  640*480
   {0x3035,0x21},                            
 #endif    
   {0x3036,0x46},                
-  {0x3037,0x14},  //bpi 0x13              
+  {0x3037,0x13},               
   {0x3108,0x01},                
   {0x3824,0x01},                
   {REG_DLY,0x05}, //delay 50ms 

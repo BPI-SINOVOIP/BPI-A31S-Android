@@ -1,7 +1,7 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 
 DEVICE_PACKAGE_OVERLAYS := \
-    device/softwinner/fiber-common/overlay
+    	device/softwinner/fiber-common/overlay
 
 include device/softwinner/fiber-common/prebuild/tools/tools.mk
 
@@ -64,72 +64,51 @@ PRODUCT_COPY_FILES += \
 
 #exdroid HAL
 PRODUCT_PACKAGES += \
-   camera.fiber \
-   lights.fiber \
-   sensors.fiber \
-   keystore.fiber
+   	camera.fiber \
+   	lights.fiber \
+   	sensors.fiber \
+   	keystore.fiber
 
 #common System APK
 PRODUCT_PACKAGES += \
-   Camera2 \
-   TvdFileManager \
-   TvdSettings \
-   TvdLauncher \
-   TvdVideo \
-   SettingsAssist \
-   MiracastReceiver \
-   AllCast.apk \
-   com.google.android.apps.inputmethod.zhuyin-1.apk \
-   com.google.android.inputmethod.pinyin_403232.apk \
-   kodi-14.2-Helix-armeabi-v7a.apk
-
-##   YGServiceFramework
-##   FileExplore \
-##   AWUpdate \
-##   GooglePinyin \
-##   YGGameCenter \
+   	Camera2 \
+   	TvdFileManager \
+   	TvdSettings \
+   	TvdVideo \
+   	SettingsAssist \
+   	MiracastReceiver \
+   	AllCast.apk \
+   	com.google.android.apps.inputmethod.zhuyin-1.apk \
+   	com.google.android.inputmethod.pinyin_403232.apk \
+   	kodi-14.2-Helix-armeabi-v7a.apk
+   	#TvdLauncher \
 
 #install apk's lib to system/lib
 PRODUCT_PACKAGES +=  \
-   libjni_mosaic.so \
-   libjni_WFDisplay.so \
+   	libjni_mosaic.so \
+   	libjni_WFDisplay.so \
 	libwfdrtsp.so \
 	libwfdplayer.so \
 	libwfdmanager.so \
 	libwfdutils.so \
 	libwfduibc.so \
-#   libjni_eglfence_awgallery.so \
+	#libjni_eglfence_awgallery.so \
 
 
 PRODUCT_COPY_FILES += \
 	device/softwinner/fiber-common/hardware/audio/audio_policy.conf:system/etc/audio_policy.conf \
 	device/softwinner/fiber-common/hardware/audio/phone_volume.conf:system/etc/phone_volume.conf
 
-#egl
+#sensor
 PRODUCT_COPY_FILES += \
-       device/softwinner/fiber-common/egl/pvrsrvctl:system/vendor/bin/pvrsrvctl \
-       device/softwinner/fiber-common/egl/libusc.so:system/vendor/lib/libusc.so \
-       device/softwinner/fiber-common/egl/libglslcompiler.so:system/vendor/lib/libglslcompiler.so \
-       device/softwinner/fiber-common/egl/libIMGegl.so:system/vendor/lib/libIMGegl.so \
-       device/softwinner/fiber-common/egl/libpvr2d.so:system/vendor/lib/libpvr2d.so \
-       device/softwinner/fiber-common/egl/libpvrANDROID_WSEGL.so:system/vendor/lib/libpvrANDROID_WSEGL.so \
-       device/softwinner/fiber-common/egl/libPVRScopeServices.so:system/vendor/lib/libPVRScopeServices.so \
-       device/softwinner/fiber-common/egl/libsrv_init.so:system/vendor/lib/libsrv_init.so \
-       device/softwinner/fiber-common/egl/libsrv_um.so:system/vendor/lib/libsrv_um.so \
-       device/softwinner/fiber-common/egl/libEGL_POWERVR_SGX544_115.so:system/vendor/lib/egl/libEGL_POWERVR_SGX544_115.so \
-       device/softwinner/fiber-common/egl/libGLESv1_CM_POWERVR_SGX544_115.so:system/vendor/lib/egl/libGLESv1_CM_POWERVR_SGX544_115.so \
-       device/softwinner/fiber-common/egl/libGLESv2_POWERVR_SGX544_115.so:system/vendor/lib/egl/libGLESv2_POWERVR_SGX544_115.so \
-       device/softwinner/fiber-common/egl/gralloc.sun6i.so:system/vendor/lib/hw/gralloc.sun6i.so \
-       device/softwinner/fiber-common/egl/hwcomposer.sun6i.so:system/vendor/lib/hw/hwcomposer.sun6i.so \
-       device/softwinner/fiber-common/egl/egl.cfg:system/lib/egl/egl.cfg \
-       device/softwinner/fiber-common/sensors.sh:system/bin/sensors.sh
+       	device/softwinner/fiber-common/sensors.sh:system/bin/sensors.sh
 
 PRODUCT_COPY_FILES += \
 	device/softwinner/fiber-common/media_codecs.xml:system/etc/media_codecs.xml \
 
 # wfd no invite
 PRODUCT_COPY_FILES += \
-    device/softwinner/fiber-common/wfd_blacklist.conf:system/etc/wfd_blacklist.conf
+    	device/softwinner/fiber-common/wfd_blacklist.conf:system/etc/wfd_blacklist.conf
 
 # init.rc
 PRODUCT_COPY_FILES += \
@@ -137,7 +116,7 @@ PRODUCT_COPY_FILES += \
 
 # table core hardware
 PRODUCT_COPY_FILES += \
-    device/softwinner/fiber-common/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml
+    	device/softwinner/fiber-common/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	persist.sys.strictmode.visual=0 \
@@ -185,31 +164,31 @@ DISPLAY_BUILD_NUMBER := true
 
 # for drm
 PRODUCT_PROPERTY_OVERRIDES += \
-    drm.service.enabled=true
+    	drm.service.enabled=true
 
 PRODUCT_PACKAGES += \
-    com.google.widevine.software.drm.xml \
-    com.google.widevine.software.drm \
-    libdrmwvmplugin \
-    libwvdrmengine \
-    libwvm \
-    libWVStreamControlAPI_L3 \
-    libwvdrm_L3 \
-    libdrmdecrypt
+    	com.google.widevine.software.drm.xml \
+    	com.google.widevine.software.drm \
+    	libdrmwvmplugin \
+    	libwvdrmengine \
+    	libwvm \
+    	libWVStreamControlAPI_L3 \
+    	libwvdrm_L3 \
+    	libdrmdecrypt
 
 #Homlet additional api
 #isomount && securefile && gpioservice
 PRODUCT_PACKAGES += \
-    isomountmanagerservice \
-    libisomountmanager_jni \
-    libisomountmanagerservice \
-    systemmixservice \
+    	isomountmanagerservice \
+    	libisomountmanager_jni \
+    	libisomountmanagerservice \
+    	systemmixservice \
 	gpioservice \
-    libsystemmix_jni \
-    libsystemmixservice \
-    libsecurefile_jni \
-    libsecurefileservice \
-    securefileserver
+    	libsystemmix_jni \
+    	libsystemmixservice \
+    	libsecurefile_jni \
+    	libsecurefileservice \
+    	securefileserver
 
 
 # pppoe

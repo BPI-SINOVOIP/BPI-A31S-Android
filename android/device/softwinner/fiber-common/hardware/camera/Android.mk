@@ -85,6 +85,11 @@ ifneq ($(filter fiber%,$(TARGET_DEVICE)),)
 LOCAL_CFLAGS += -D__SUN6I__
 endif
 
+# for bpi target device
+ifneq ($(filter bpi%,$(TARGET_DEVICE)),)
+LOCAL_CFLAGS += -D__SUN6I__
+endif
+
 LOCAL_MODULE := camera.$(TARGET_BOARD_PLATFORM)
 
 LOCAL_MODULE_TAGS := optional
