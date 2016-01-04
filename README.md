@@ -31,15 +31,15 @@ gnu/libGL.so`
 
 ###**Build**
 
-Use following command to fast build::
+Use following command to fast build:
 
-HDMI target build
+HDMI target build, userdebug variant default 
 
 `$ ./build_hdmi.sh`
 
-LCD target build
+LCD target build, userdebug variant default
 
-`$ ./build_LCD.sh`
+`$ ./build_lcd.sh`
 
 For detail build process in *Build_Code_Command.txt*
 
