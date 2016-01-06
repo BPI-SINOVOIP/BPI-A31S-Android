@@ -1,4 +1,4 @@
-#BPI-M2 Android 4.4.2 Source code
+ A31s Android 4.4.2 Source code
 
 ----------
 
@@ -31,15 +31,33 @@ gnu/libGL.so`
 
 ###**Build**
 
-Use following command to fast build:
+Run build.sh to select a target build.
 
-HDMI target build, userdebug variant default 
+> $ build.sh
+> 
+> = ==============================
+> 
+> BPI A31s Android Build
+> 
+> = ==============================
+> 
+> 
+> 1. BPI_M2_HDMI
+> 2. BPI_M2_LCD
+> 
+> Please choose a target(1-6): 1
+> 
+> 1. userdebug
+> 2. eng
+> 3. user
+>
+>Please choose a variant(1-3): 2
+> 
+> TARGET_DEVICE=bpi_m2_hdmi VARIANT=eng
 
-`$ ./build_hdmi.sh`
 
-LCD target build, userdebug variant default
 
-`$ ./build_lcd.sh`
 
-For detail build process in *Build_Code_Command.txt*
+
+
 
