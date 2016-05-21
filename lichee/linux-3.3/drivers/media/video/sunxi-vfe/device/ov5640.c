@@ -4082,7 +4082,7 @@ static int sensor_power(struct v4l2_subdev *sd, int on)
   switch(on)
   {
     case CSI_SUBDEV_STBY_ON:
-      vfe_dev_dbg("CSI_SUBDEV_STBY_ON!\n");
+      vfe_dev_print("CSI_SUBDEV_STBY_ON!\n");
       #ifdef _FLASH_FUNC_
       io_set_flash_ctrl(sd, SW_CTRL_FLASH_OFF, to_state(sd)->fl_dev_info);
       #endif
@@ -4108,7 +4108,7 @@ static int sensor_power(struct v4l2_subdev *sd, int on)
       vfe_set_mclk(sd,OFF);
       break;
     case CSI_SUBDEV_STBY_OFF:
-      vfe_dev_dbg("CSI_SUBDEV_STBY_OFF!\n"); 
+      vfe_dev_print("CSI_SUBDEV_STBY_OFF!\n"); 
       //make sure that no device can access i2c bus during sensor initial or power down
       //when using i2c_lock_adpater function, the following codes must not access i2c bus before calling i2c_unlock_adapter
       i2c_lock_adapter(client->adapter);    
@@ -4132,7 +4132,7 @@ static int sensor_power(struct v4l2_subdev *sd, int on)
       usleep_range(10000,12000);
       break;
     case CSI_SUBDEV_PWR_ON:
-      vfe_dev_dbg("CSI_SUBDEV_PWR_ON!\n");
+      vfe_dev_print("CSI_SUBDEV_PWR_ON!\n");
 	  printk("CSI_SUBDEV_PWR_ONCSI_SUBDEV_PWR_ONCSI_SUBDEV_PWR_ONCSI_SUBDEV_PWR_ONCSI_SUBDEV_PWR_ON\n");
       //make sure that no device can access i2c bus during sensor initial or power down
       //when using i2c_lock_adpater function, the following codes must not access i2c bus before calling i2c_unlock_adapter
@@ -4165,7 +4165,7 @@ static int sensor_power(struct v4l2_subdev *sd, int on)
       i2c_unlock_adapter(client->adapter);  
       break;
     case CSI_SUBDEV_PWR_OFF:
-      vfe_dev_dbg("CSI_SUBDEV_PWR_OFF!\n");
+      vfe_dev_print("CSI_SUBDEV_PWR_OFF!\n");
       //make sure that no device can access i2c bus during sensor initial or power down
       //when using i2c_lock_adpater function, the following codes must not access i2c bus before calling i2c_unlock_adapter
       i2c_lock_adapter(client->adapter);

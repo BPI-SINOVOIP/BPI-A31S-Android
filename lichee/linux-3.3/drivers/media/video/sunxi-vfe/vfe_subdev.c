@@ -18,6 +18,8 @@ int vfe_set_pmu_channel(struct v4l2_subdev *sd, enum pmic_channel pmic_ch, enum 
   struct regulator *pmic;
   int ret;
   
+  vfe_print("%s\n", __func__);
+  
   switch(pmic_ch) {
     case IOVDD:
       pmic = dev->power->iovdd;
@@ -52,33 +54,11 @@ int vfe_set_pmu_channel(struct v4l2_subdev *sd, enum pmic_channel pmic_ch, enum 
   }
   
   if(on_off == OFF) {
-    if(pmic) {
-      if(!regulator_is_enabled(pmic)) {
-      vfe_dbg(0,"regulator_is already disabled\n");
-      	return 0;
-      } else {
-	      ret = regulator_disable(pmic);
-	      vfe_dbg(0,"regulator_disable\n");
-	      while(regulator_is_enabled(pmic)) {
-	      	vfe_dbg(0,"regulator is checked enalbed\n");
-	      }
-	      return ret;
-	    }
-    }
+    if(pmic)
+      return regulator_disable(pmic);
   } else {
-    if(pmic) {
-      if(regulator_is_enabled(pmic)) {
-      vfe_dbg(0,"regulator_is already enabled\n");
-      	return 0;
-      } else {
-	      ret = regulator_enable(pmic);
-	      vfe_dbg(0,"regulator_enable\n");
-	      while(!regulator_is_enabled(pmic)) {
-	      	vfe_dbg(0,"regulator is checked disalbed\n");
-	      }
-	      return ret;
-	    }
-    }
+    if(pmic)
+      return regulator_enable(pmic);    
   }
   
   return 0;

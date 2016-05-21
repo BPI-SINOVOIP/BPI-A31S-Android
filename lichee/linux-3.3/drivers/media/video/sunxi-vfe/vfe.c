@@ -4222,9 +4222,9 @@ snesor_register_end:
 			vfe_print("power on and standy on camera %d!\n",input_num);
 			ret=v4l2_subdev_call(dev->ccm_cfg[input_num]->sd,core, s_power, CSI_SUBDEV_PWR_ON);
 			if(ret==0)
-			v4l2_subdev_call(dev->ccm_cfg[input_num]->sd,core, s_power, CSI_SUBDEV_STBY_ON);
+				v4l2_subdev_call(dev->ccm_cfg[input_num]->sd,core, s_power, CSI_SUBDEV_STBY_ON);
 			else
-			;//goto probe_hdl_unreg_dev;
+				;//goto probe_hdl_unreg_dev;
 		}
 	}
 	
