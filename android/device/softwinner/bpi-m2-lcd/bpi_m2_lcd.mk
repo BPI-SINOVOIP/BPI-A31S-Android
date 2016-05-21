@@ -13,6 +13,14 @@ PRODUCT_COPY_FILES += \
         device/softwinner/bpi-m2-lcd/modules/modules/sun6i-ir.ko:root/sun6i-ir.ko \
         device/softwinner/bpi-m2-lcd/modules/modules/gpio-sunxi.ko:root/gpio-sunxi.ko
 
+PRODUCT_COPY_FILES += \
+    	device/softwinner/bpi-m2-lcd/media/bootanimation.zip:system/media/bootanimation.zip \
+    	device/softwinner/bpi-m2-lcd/media/initlogo.rle:root/initlogo.rle \
+#    device/softwinner/bpi-m1plus-lcd7/media/boot.wav:system/media/boot.wav \
+#    device/softwinner/bpi-m1plus-lcd7/media/bootlogo.bmp:system/media/bootlogo.bmp \
+#    device/softwinner/bpi-m1plus-lcd7/media/initlogo.bmp:system/media/initlogo.bmp 
+
+
 # wifi & bt config file
 PRODUCT_COPY_FILES += \
         frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
@@ -56,8 +64,8 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
         persist.sys.timezone=Asia/Shanghai \
-        persist.sys.language=zh \
-        persist.sys.country=CN
+        persist.sys.language=en \
+        persist.sys.country=US
 
 PRODUCT_PROPERTY_OVERRIDES += \
         config.disable_bluetooth=true \
