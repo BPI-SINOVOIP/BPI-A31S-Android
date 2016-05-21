@@ -77,11 +77,11 @@ PRODUCT_PACKAGES += \
    	TvdVideo \
    	SettingsAssist \
    	MiracastReceiver \
-   	AllCast.apk \
-   	com.google.android.apps.inputmethod.zhuyin-1.apk \
-   	com.google.android.inputmethod.pinyin_403232.apk \
    	kodi-14.2-Helix-armeabi-v7a.apk
-   	#TvdLauncher \
+#   	AllCast.apk \
+#   	com.google.android.apps.inputmethod.zhuyin-1.apk \
+#   	com.google.android.inputmethod.pinyin_403232.apk \
+#   	TvdLauncher \
 
 #install apk's lib to system/lib
 PRODUCT_PACKAGES +=  \

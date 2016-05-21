@@ -29,7 +29,7 @@ sysclktz 0
 loglevel 3
 
 # Backward compatibility
-	insmod /nand.ko 
+#	insmod /nand.ko 
     symlink /system/etc /etc
     symlink /sys/kernel/debug /d
 

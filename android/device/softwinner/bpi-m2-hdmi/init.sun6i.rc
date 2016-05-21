@@ -111,11 +111,11 @@ on fs
     insmod /system/vendor/modules/g2d_33.ko
 
 #insmod tp and keyboard gsensor
-    insmod /system/vendor/modules/sw_device.ko
-    insmod /system/vendor/modules/sw-keyboard.ko
+#    insmod /system/vendor/modules/sw_device.ko
+#    insmod /system/vendor/modules/sw-keyboard.ko
 
 #install ir driver . by Gary.
-    insmod /system/vendor/modules/sun6i-ir.ko
+#    insmod /system/vendor/modules/sun6i-ir.ko
 
 #insmod boardcom wifi driver
    insmod /system/vendor/modules/bcmdhd.ko
@@ -124,19 +124,19 @@ on fs
     insmod /system/vendor/modules/sunxi-temperature.ko
 
 #insmod usb ethernet
-    insmod /system/vendor/modules/asix.ko
-    insmod /system/vendor/modules/qf9700.ko
-    insmod /system/vendor/modules/mcs7830.ko
-    insmod /system/vendor/modules/rtl8150.ko
+#    insmod /system/vendor/modules/asix.ko
+#    insmod /system/vendor/modules/qf9700.ko
+#    insmod /system/vendor/modules/mcs7830.ko
+#    insmod /system/vendor/modules/rtl8150.ko
 
 #insmod gpio-sunxi
     insmod /system/vendor/modules/gpio-sunxi.ko
 
 #spdif
-    insmod /system/vendor/modules/sun6i_spdif.ko
-    insmod /system/vendor/modules/sun6i_spdma.ko
-    insmod /system/vendor/modules/sndspdif.ko
-    insmod /system/vendor/modules/sun6i_sndspdif.ko
+#    insmod /system/vendor/modules/sun6i_spdif.ko
+#    insmod /system/vendor/modules/sun6i_spdma.ko
+#    insmod /system/vendor/modules/sndspdif.ko
+#    insmod /system/vendor/modules/sun6i_sndspdif.ko
 
 service pvrsrvctl /system/vendor/bin/pvrsrvctl --start --no-module
     class core
