@@ -941,6 +941,9 @@ u32 gpio_request(user_gpio_set_t *gpio_list, __u32 group_count_max)
         {
             continue;
         }
+		//Justin Porting for BPI-M2 20150727 Start
+	    cpus_flag =0;
+		//Justin Porting for BPI-M2 20150727 End
         if(port >= 12)
         {
             cpus_flag = 1;
@@ -990,7 +993,13 @@ u32 gpio_request(user_gpio_set_t *gpio_list, __u32 group_count_max)
         tmp_sys_gpio_data->user_gpio_status.pull      = tmp_user_gpio_data->pull;
         tmp_sys_gpio_data->user_gpio_status.drv_level = tmp_user_gpio_data->drv_level;
         tmp_sys_gpio_data->user_gpio_status.data      = tmp_user_gpio_data->data;
-
+	   //Justin Porting for BPI-M2 20150727 Start
+	   cpus_flag =0;
+        if(port >= 12)
+        {
+            cpus_flag = 1;
+        }
+       //Justin Porting for BPI-M2 20150727 Start
         port_num_func = (port_num >> 3);
         port_num_pull = (port_num >> 4);
 

@@ -1205,7 +1205,9 @@ static int axp22_set_gpio0ldo(int set_vol, int onoff)
 	else
 	{
 		reg_value &= ~(7 << 0);
-		reg_value |=  (2 << 0);
+	    //Justin Porting for BPI-M2 20150727 Start
+		reg_value |=  3; 
+		//Justin Porting for BPI-M2 20150727 End
 	}
     if(axp_i2c_write(AXP22_ADDR, BOOT_POWER22_GPIO0_CTL, reg_value))
 	{
@@ -1276,7 +1278,9 @@ static int axp22_set_gpio1ldo(int set_vol, int onoff)
 	else
 	{
 		reg_value &= ~(7 << 0);
-		reg_value |=  (2 << 0);
+		//Justin Porting for BPI-M2 20150727 Start
+		reg_value |=  3; 
+		//Justin Porting for BPI-M2 20150727 End
 	}
     if(axp_i2c_write(AXP22_ADDR, BOOT_POWER22_GPIO1_CTL, reg_value))
 	{

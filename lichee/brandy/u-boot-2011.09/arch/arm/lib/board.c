@@ -49,6 +49,12 @@
 #include <onenand_uboot.h>
 #include <mmc.h>
 
+//Justin Porting for BPI-M2 20150727 Start
+#include <asm/arch/sc.h>
+#include <sys_config.h>
+//Justin Porting for BPI-M2 20150727 Start
+
+
 #ifdef CONFIG_BITBANGMII
 #include <miiphy.h>
 #endif
@@ -68,6 +74,10 @@ ulong monitor_flash_len;
 extern int  AT91F_DataflashInit(void);
 extern void dataflash_print_info(void);
 #endif
+
+//Justin Porting for BPI-M2 20150727 Start
+extern int axp22_set_supply_status_byname(char *vol_name, int vol_value, int onoff);
+//Justin Porting for BPI-M2 20150727 Start
 
 #ifdef CONFIG_DRIVER_RTL8019
 extern void rtl8019_get_enetaddr (uchar * addr);
@@ -764,6 +774,13 @@ void board_init_r(gd_t *id, ulong dest_addr)
 		}
 #endif
     	printf("WORK_MODE_BOOT\n");
+     //Justin Porting for BPI-M2 20150727 Start
+    axp22_set_supply_status_byname("dldo2", 2800, 1);
+	axp22_set_supply_status_byname("dldo3", 3300, 1);
+	axp22_set_supply_status_byname("gpio1", 2800, 1);
+	axp22_set_supply_status_byname("gpio2", 3300, 1);
+	axp22_set_supply_status_byname("aldo1", 3300, 1);
+     //Justin Porting for BPI-M2 20150727 Start
 #if (defined(CONFIG_SUN6I) || defined(CONFIG_A50) || defined(CONFIG_SUN7I))
 		if(!ret)
 		{
