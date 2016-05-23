@@ -346,9 +346,9 @@ public class WirelessSettings extends RestrictedSettingsFragment
             mNfcEnabler = null;
         }
 
-        
 		// Remove Mobile Network Settings and Manage Mobile Plan if it's a wifi-only device.
         if (isSecondaryUser || Utils.isWifiOnly(getActivity())) {
+	    log("wifi only, remove mobile settings");
             removePreference(KEY_MOBILE_NETWORK_SETTINGS);
             removePreference(KEY_MANAGE_MOBILE_PLAN);
         }
@@ -364,10 +364,6 @@ public class WirelessSettings extends RestrictedSettingsFragment
         if (getActivity().getPackageManager().hasSystemFeature(PackageManager.FEATURE_TELEVISION)) {
             removePreference(KEY_TOGGLE_AIRPLANE);
         }
-		removePreference(KEY_TOGGLE_AIRPLANE);
-		removePreference(KEY_SMS_APPLICATION);
-		removePreference(KEY_MOBILE_NETWORK_SETTINGS);
-		removePreference(KEY_MANAGE_MOBILE_PLAN);
 
         // Enable Proxy selector settings if allowed.
         Preference mGlobalProxy = findPreference(KEY_PROXY_SETTINGS);

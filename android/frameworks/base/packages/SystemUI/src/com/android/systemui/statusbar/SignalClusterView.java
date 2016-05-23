@@ -214,8 +214,7 @@ public class SignalClusterView
             mMobileType.setImageResource(mMobileTypeId);
 
             mMobileGroup.setContentDescription(mMobileTypeDescription + " " + mMobileDescription);
-            //mMobileGroup.setVisibility(View.VISIBLE);
-            mMobileGroup.setVisibility(View.GONE);
+            mMobileGroup.setVisibility(View.VISIBLE);
         } else {
             mMobileGroup.setVisibility(View.GONE);
         }
