@@ -150,7 +150,7 @@ service updatesoftwinner /system/bin/updatesoftwinner
     group root
 
 # ril related services
-service ril-daemon /system/bin/rild -l libsoftwinner-ril.so -- -d /dev/ttyUSB2
+service ril-daemon /system/bin/rild -l libsoftwinner-ril.so -- -d /dev/ttyUSB3
     class main
     socket rild stream 660 root radio
     socket rild-debug stream 660 radio system

@@ -86,7 +86,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
         chat \
         rild \
-        pppd
+        pppd \
+#	libril_audio \
+#	libcodec_audio \
+#	Dialer \
+#    	Mms \
 
 # 3G Data Card Configuration Flie
 PRODUCT_COPY_FILES += \
@@ -102,6 +106,14 @@ PRODUCT_COPY_FILES += \
 # 3G Data Card usb modeswitch File
 PRODUCT_COPY_FILES += \
         $(call find-copy-subdir-files,*,device/softwinner/fiber-common/rild/usb_modeswitch.d,system/etc/usb_modeswitch.d)
+
+# 3G properties
+PRODUCT_PROPERTY_OVERRIDES += \
+	rild.libpath=/system/lib/libsoftwinner-ril.so \
+	rild.libargs=-d/dev/ttyUSB3 \
+	ro.telephony.default_network=0 \
+	ro.sw.embeded.telephony=true \
+	audio.without.earpiece=true
 
 #egl
 PRODUCT_COPY_FILES += \

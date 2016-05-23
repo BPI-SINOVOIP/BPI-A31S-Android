@@ -116,9 +116,9 @@ int main(int argc, char **argv)
 	if(property_get("ro.sw.embeded.telephony", platform, NULL)){
 		if(strcmp(platform, "true")) {
 			RLOGI("platform: wifi-only");
-			radio_monitor();
 		}else{
 			RLOGI("platform: telephony");
+			radio_monitor();
 		}
 	}
 
