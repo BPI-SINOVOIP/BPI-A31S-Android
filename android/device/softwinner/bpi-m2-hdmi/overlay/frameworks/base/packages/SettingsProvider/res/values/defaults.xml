@@ -28,4 +28,6 @@
     <bool name="def_user_setup_complete">true</bool>
     <bool name="def_install_non_market_apps">false</bool>
     <integer name="def_audio_manage_policy">0</integer>
+
+    <bool name="def_ethernet_on">false</bool>
 </resources>
