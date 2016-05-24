@@ -28,9 +28,13 @@ on init
     mkdir /mnt/usbhost0 0700 system system
     mkdir /mnt/usbhost1 0700 system system
     mkdir /mnt/usbhost2 0700 system system
+    mkdir /mnt/usbhost3 0700 system system
+    mkdir /mnt/usbhost4 0700 system system
     symlink /mnt/usbhost0 /storage/usbhost0
     symlink /mnt/usbhost1 /storage/usbhost1
     symlink /mnt/usbhost2 /storage/usbhost2
+    symlink /mnt/usbhost3 /storage/usbhost3
+    symlink /mnt/usbhost4 /storage/usbhost4
     
    chmod 6755 /system/xbin/su
    chmod 755 /system/bin/preinstall.sh  

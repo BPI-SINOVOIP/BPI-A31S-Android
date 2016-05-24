@@ -70,4 +70,18 @@
              android:emulated="false"  
              android:mtpReserve="0" 
              android:maxFileSize="0"/>
+	<storage android:mountPoint="/mnt/usbhost3"
+             android:storageDescription="usbhost3"
+             android:primary="false"
+             android:removable="true"
+             android:emulated="false"  
+             android:mtpReserve="0" 
+             android:maxFileSize="0"/>
+       <storage android:mountPoint="/mnt/usbhost4"
+             android:storageDescription="usbhost4"
+             android:primary="false"
+             android:removable="true"
+             android:emulated="false"  
+             android:mtpReserve="0" 
+             android:maxFileSize="0"/>
 </StorageList>
