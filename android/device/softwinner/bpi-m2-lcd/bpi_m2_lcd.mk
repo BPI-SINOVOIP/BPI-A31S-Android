@@ -86,7 +86,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
         chat \
         rild \
-        pppd
+        pppd \
+#	libril_audio \
+#	libcodec_audio \
+#	Dialer \
+#    	Mms \
 
 # 3G Data Card Configuration Flie
 PRODUCT_COPY_FILES += \
@@ -102,6 +106,14 @@ PRODUCT_COPY_FILES += \
 # 3G Data Card usb modeswitch File
 PRODUCT_COPY_FILES += \
         $(call find-copy-subdir-files,*,device/softwinner/fiber-common/rild/usb_modeswitch.d,system/etc/usb_modeswitch.d)
+
+# 3G properties
+PRODUCT_PROPERTY_OVERRIDES += \
+	rild.libpath=/system/lib/libsoftwinner-ril.so \
+	rild.libargs=-d/dev/ttyUSB3 \
+	ro.telephony.default_network=0 \
+	ro.sw.embeded.telephony=true \
+	audio.without.earpiece=true
 
 #egl
 PRODUCT_COPY_FILES += \
@@ -153,7 +165,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 $(call inherit-product-if-exists, device/softwinner/bpi-m2-lcd/modules/modules.mk)
 
 include device/softwinner/fiber-common/prebuild/framework_aw/framework_aw.mk
-include device/softwinner/fiber-common/prebuild/google/products/gms.mk
+#include device/softwinner/fiber-common/prebuild/google/products/gms.mk
 
 DEVICE_PACKAGE_OVERLAYS := \
         device/softwinner/bpi-m2-lcd/overlay \
