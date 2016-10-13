@@ -12,6 +12,7 @@ PACK_FUNC="android"
 PACK_DEBUG="uart0"
 PACK_SIG="none"
 PACK_MODE="normal"
+PACK_TIME=`date +%Y%m%d-%H%M`
 
 export PATH=${TOOLS_DIR}/mod_update:${TOOLS_DIR}/eDragonEx:${TOOLS_DIR}/fsbuild200:${TOOLS_DIR}/android:$PATH
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${TOOLS_DIR}/libs
@@ -205,15 +206,15 @@ do_pack_crane()
 
     if [ $PACK_DEBUG = card0 ]; then
     	if [ ${PACK_SIG} = "sig" ]; then
-	    	IMG_NAME="${PACK_CHIP}_${PACK_PLATFORM}_${PACK_BOARD}_${PACK_DEBUG}_${PACK_SIG}.img"
+	    	IMG_NAME="${PACK_CHIP}_${PACK_PLATFORM}_${PACK_BOARD}_${PACK_DEBUG}_${PACK_SIG}_${PACK_TIME}.img"
 	    else
-	    	IMG_NAME="${PACK_CHIP}_${PACK_PLATFORM}_${PACK_BOARD}_${PACK_DEBUG}.img"
+	    	IMG_NAME="${PACK_CHIP}_${PACK_PLATFORM}_${PACK_BOARD}_${PACK_DEBUG}_${PACK_TIME}.img"
 	    fi
     else
     	if [ ${PACK_SIG} = "sig" ]; then
-        	IMG_NAME="${PACK_CHIP}_${PACK_PLATFORM}_${PACK_BOARD}_${PACK_SIG}.img"
+        	IMG_NAME="${PACK_CHIP}_${PACK_PLATFORM}_${PACK_BOARD}_${PACK_SIG}_${PACK_TIME}.img"
         else
-        	IMG_NAME="${PACK_CHIP}_${PACK_PLATFORM}_${PACK_BOARD}.img"
+        	IMG_NAME="${PACK_CHIP}_${PACK_PLATFORM}_${PACK_BOARD}_${PACK_TIME}.img"
         fi
     fi
 
@@ -323,9 +324,9 @@ do_pack_linux0()
     sed -i 's/imagename/;imagename/g' image.cfg
 
     if [ $PACK_DEBUG = card0 ]; then
-        IMG_NAME="${PACK_CHIP}_${PACK_PLATFORM}_${PACK_BOARD}_${PACK_DEBUG}.img"
+        IMG_NAME="${PACK_CHIP}_${PACK_PLATFORM}_${PACK_BOARD}_${PACK_DEBUG}_${PACK_TIME}.img"
     else
-        IMG_NAME="${PACK_CHIP}_${PACK_PLATFORM}_${PACK_BOARD}.img"
+        IMG_NAME="${PACK_CHIP}_${PACK_PLATFORM}_${PACK_BOARD}_${PACK_TIME}.img"
     fi
     echo "imagename = $IMG_NAME" >> image.cfg
     echo "" >> image.cfg
@@ -412,7 +413,7 @@ do_pack_dump()
     sed -i 's/\\\\/\//g' image.cfg
     sed -i 's/imagename/;imagename/g' image.cfg
 
-	IMG_NAME="${PACK_CHIP}_${PACK_PLATFORM}_${PACK_BOARD}_${PACK_MODE}.img"
+	IMG_NAME="${PACK_CHIP}_${PACK_PLATFORM}_${PACK_BOARD}_${PACK_MODE}_${PACK_TIME}.img"
 
     echo "imagename = $IMG_NAME" >> image.cfg
     echo "" >> image.cfg
@@ -480,9 +481,9 @@ do_pack_dragonboard()
     sed -i 's/imagename/;imagename/g' image.cfg
 
     if [ $PACK_DEBUG = card0 ]; then
-	    IMG_NAME="${PACK_CHIP}_${PACK_PLATFORM}_${PACK_BOARD}_$PACK_DEBUG.img"
+	    IMG_NAME="${PACK_CHIP}_${PACK_PLATFORM}_${PACK_BOARD}_$PACK_DEBUG_${PACK_TIME}.img"
     else
-        IMG_NAME="${PACK_CHIP}_${PACK_PLATFORM}_${PACK_BOARD}.img"
+        IMG_NAME="${PACK_CHIP}_${PACK_PLATFORM}_${PACK_BOARD}_${PACK_TIME}.img"
     fi
     echo "imagename = $IMG_NAME" >> image.cfg
     echo "" >> image.cfg
@@ -566,7 +567,7 @@ do_pack_prvt()
     sed -i 's/\\\\/\//g' image.cfg
     sed -i 's/imagename/;imagename/g' image.cfg
 
-    IMG_NAME="${PACK_CHIP}_${PACK_FUNC}.img"
+    IMG_NAME="${PACK_CHIP}_${PACK_FUNC}_${PACK_TIME}.img"
 
     echo "imagename = $IMG_NAME" >> image.cfg
     echo "" >> image.cfg
