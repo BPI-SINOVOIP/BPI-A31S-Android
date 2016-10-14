@@ -37,4 +37,10 @@
     <string name="headphone_plug_out_title">"耳机拔出"</string>
     <string name="headphone_plug_in_message">"切换至耳机"</string>
     <string name="headphone_plug_out_message">"切换至原始的默认通道"</string>
+
+    <string name="storage_usbhost0">USB OTG 存储器</string>
+    <string name="storage_usbhost1">USB Host1 存储器</string>
+    <string name="storage_usbhost2">USB Host2 存储器</string>
+    <string name="storage_usbhost3">USB Host3 存储器</string>
+    <string name="storage_usbhost4">USB Host4 存储器</string>
 </resources>
