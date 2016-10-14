@@ -117,6 +117,7 @@ on fs
 #insmod tp and keyboard gsensor
 #    insmod /system/vendor/modules/sw_device.ko
 #    insmod /system/vendor/modules/sw-keyboard.ko
+    insmod /system/vendor/modules/ft5x_ts.ko
 
 #install ir driver . by Gary.
 #    insmod /system/vendor/modules/sun6i-ir.ko
