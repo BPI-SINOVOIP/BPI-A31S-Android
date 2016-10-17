@@ -36,7 +36,7 @@ size = 16384
 ;------------------------------>mmcblk0p2/nanda
 [partition]
     name         = bootloader
-    size	 = 32768
+    size	 = 65536
     downloadfile = "bootloader.fex"
     user_type    = 0xC000
 
@@ -63,46 +63,40 @@ size = 16384
 
 ;------------------------------>mmcblk0p8/nande
 [partition]
-    name         = data
-    size         = 2097152
-    user_type    = 0xC000
-
-;------------------------------>mmcblk0p9/nandf
-[partition]
-    name         = misc
-    size         = 32768
-    user_type    = 0xC000
-;------------------------------>mmcblk0p10/nandg
-[partition]
     name         = recovery
     size         = 65536
     downloadfile = "recovery.fex"
     user_type    = 0xC000
-    
-;------------------------------>mmcblk0p11/nandh
+
+;------------------------------>mmcblk0p9/nandf
 [partition]
-    name         = sysrecovery
-    size         = 1572864
-    downloadfile = "sysrecovery.fex"
+    name         = databk
+    size         = 262144
     user_type    = 0xC000
-    verify       = 0
-    
-;------------------------------>mmcblk0p11/nandh
+
+;------------------------------>mmcblk0p10/nandg
 [partition]
-    name         = cache
-    size         = 1048576
+    name         = misc
+    size         = 32768
     user_type    = 0xC000
-;------------------------------>nandi, private partition
+    
+;------------------------------>mmcblk0p11/nandh, private partition
 [partition]
     name         = private
     size         = 32768
     keydata      = 1
     user_type    = 0xC000
     
-;------------------------------>nandj, data image backup
+;------------------------------>mmcblk0p12/nandi, data image backup
 [partition]
-    name         = databk
-    size         = 262144
+    name         = data
+    size         = 2097152
+    user_type    = 0xC000
+
+;------------------------------>mmcblk0p13/nandj
+[partition]
+    name         = cache
+    size         = 1048576
     user_type    = 0xC000
 
 ;------------------------------>nandk, UDISK
