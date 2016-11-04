@@ -6,6 +6,7 @@ ROOT_DIR=$PWD
 TOOLS_DIR=${ROOT_DIR}/pctools/linux
 PACK_CHIP="sun8iw1p1"
 PACK_PLATFORM="linux"
+PACK_VERSION=
 PACK_BOARD="evb"
 PACK_BOOT="nand"
 PACK_FUNC="android"
@@ -25,16 +26,17 @@ NAME
     pack-new - The pack tools for linux firmware
 
 SYNOPSIS
-    pack [-h] [-c chip] [-p platform] [-b board] [-d debug] [-s sig]
+    pack [-h] [-c chip] [-p platform] [-v version] [-b board] [-d debug] [-s sig]
 
 OPTIONS
-    -h                  Display help message
-    -c [chip_type]      Chip type, e.g. sun3i, sun4i, sun5i,...
-    -p [platform_type]  Platform type, e.g. linux, crane,...
-    -b [board_type]     Board type, e.g. evb1.1, evb1.2, ...
-    -B [boot_type]      Boot type, e.g. nand, sdcard, ...
-    -d [debug_mode]     Debug modes, e.g. uart0(default), card0
-    -s [sig_mode]       Sig modes, e.g. none(default), sig
+    -h                    Display help message
+    -c [chip_type]        Chip type, e.g. sun3i, sun4i, sun5i,...
+    -p [platform_type]    Platform type, e.g. linux, crane,...
+    -v [platform_version] Platform version, e.g, android, 4.4,...
+    -b [board_type]       Board type, e.g. evb1.1, evb1.2, ...
+    -B [boot_type]        Boot type, e.g. nand, sdcard, ...
+    -d [debug_mode]       Debug modes, e.g. uart0(default), card0
+    -s [sig_mode]         Sig modes, e.g. none(default), sig
 
 All available chips, platfroms, boards are list below
 
@@ -62,7 +64,7 @@ do
 done
 }
 
-while getopts hc:p:b:B:d:f:s:m: OPTION
+while getopts hc:p:v:b:B:d:f:s:m: OPTION
 do
     case $OPTION in
     h) show_help
@@ -73,6 +75,8 @@ do
     b) PACK_BOARD=$OPTARG
     ;;
     p) PACK_PLATFORM=$OPTARG
+    ;;
+    v) PACK_VERSION=$OPTARG
     ;;
     B) PACK_BOOT=$OPTARG
     ;;
@@ -92,7 +96,7 @@ done
 
 do_prepare()
  {
-    if [ -z "$PACK_CHIP" -o -z "$PACK_BOARD" -o -z "$PACK_PLATFORM" -o  ! -d "chips/$PACK_CHIP/configs/$PACK_PLATFORM/$PACK_BOARD" ]; then
+    if [ -z "$PACK_CHIP" -o -z "$PACK_BOARD" -o -z "$PACK_PLATFORM" -o -z "$PACK_VERSION" -o  ! -d "chips/$PACK_CHIP/configs/$PACK_PLATFORM/$PACK_BOARD" ]; then
         printf "Invalid Parameter\n"
         show_help
         exit 1
@@ -206,15 +210,15 @@ do_pack_crane()
 
     if [ $PACK_DEBUG = card0 ]; then
     	if [ ${PACK_SIG} = "sig" ]; then
-	    	IMG_NAME="${PACK_CHIP}_${PACK_PLATFORM}_${PACK_BOARD}_${PACK_DEBUG}_${PACK_SIG}_${PACK_TIME}.img"
+	    	IMG_NAME="${PACK_CHIP}_${PACK_PLATFORM}_${PACK_VERSION}_${PACK_BOARD}_${PACK_DEBUG}_${PACK_SIG}_${PACK_TIME}.img"
 	    else
-	    	IMG_NAME="${PACK_CHIP}_${PACK_PLATFORM}_${PACK_BOARD}_${PACK_DEBUG}_${PACK_TIME}.img"
+	    	IMG_NAME="${PACK_CHIP}_${PACK_PLATFORM}_${PACK_VERSION}_${PACK_BOARD}_${PACK_DEBUG}_${PACK_TIME}.img"
 	    fi
     else
     	if [ ${PACK_SIG} = "sig" ]; then
-        	IMG_NAME="${PACK_CHIP}_${PACK_PLATFORM}_${PACK_BOARD}_${PACK_SIG}_${PACK_TIME}.img"
+        	IMG_NAME="${PACK_CHIP}_${PACK_PLATFORM}_${PACK_VERSION}_${PACK_BOARD}_${PACK_SIG}_${PACK_TIME}.img"
         else
-        	IMG_NAME="${PACK_CHIP}_${PACK_PLATFORM}_${PACK_BOARD}_${PACK_TIME}.img"
+        	IMG_NAME="${PACK_CHIP}_${PACK_PLATFORM}_${PACK_VERSION}_${PACK_BOARD}_${PACK_TIME}.img"
         fi
     fi
 
@@ -324,9 +328,9 @@ do_pack_linux0()
     sed -i 's/imagename/;imagename/g' image.cfg
 
     if [ $PACK_DEBUG = card0 ]; then
-        IMG_NAME="${PACK_CHIP}_${PACK_PLATFORM}_${PACK_BOARD}_${PACK_DEBUG}_${PACK_TIME}.img"
+        IMG_NAME="${PACK_CHIP}_${PACK_PLATFORM}_${PACK_VERSION}_${PACK_BOARD}_${PACK_DEBUG}_${PACK_TIME}.img"
     else
-        IMG_NAME="${PACK_CHIP}_${PACK_PLATFORM}_${PACK_BOARD}_${PACK_TIME}.img"
+        IMG_NAME="${PACK_CHIP}_${PACK_PLATFORM}_${PACK_VERSION}_${PACK_BOARD}_${PACK_TIME}.img"
     fi
     echo "imagename = $IMG_NAME" >> image.cfg
     echo "" >> image.cfg
@@ -413,7 +417,7 @@ do_pack_dump()
     sed -i 's/\\\\/\//g' image.cfg
     sed -i 's/imagename/;imagename/g' image.cfg
 
-	IMG_NAME="${PACK_CHIP}_${PACK_PLATFORM}_${PACK_BOARD}_${PACK_MODE}_${PACK_TIME}.img"
+	IMG_NAME="${PACK_CHIP}_${PACK_PLATFORM}_${PACK_VERSION}_${PACK_BOARD}_${PACK_MODE}_${PACK_TIME}.img"
 
     echo "imagename = $IMG_NAME" >> image.cfg
     echo "" >> image.cfg
@@ -481,9 +485,9 @@ do_pack_dragonboard()
     sed -i 's/imagename/;imagename/g' image.cfg
 
     if [ $PACK_DEBUG = card0 ]; then
-	    IMG_NAME="${PACK_CHIP}_${PACK_PLATFORM}_${PACK_BOARD}_$PACK_DEBUG_${PACK_TIME}.img"
+	    IMG_NAME="${PACK_CHIP}_${PACK_PLATFORM}_${PACK_VERSION}_${PACK_BOARD}_$PACK_DEBUG_${PACK_TIME}.img"
     else
-        IMG_NAME="${PACK_CHIP}_${PACK_PLATFORM}_${PACK_BOARD}_${PACK_TIME}.img"
+        IMG_NAME="${PACK_CHIP}_${PACK_PLATFORM}_${PACK_VERSION}_${PACK_BOARD}_${PACK_TIME}.img"
     fi
     echo "imagename = $IMG_NAME" >> image.cfg
     echo "" >> image.cfg
